@@ -1,0 +1,5 @@
+# Rust output directory.
+/target
+
+# VSCode settings directory
+/.vscode
