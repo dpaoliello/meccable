@@ -191,9 +191,6 @@ impl Meccanoid {
     }
 
     /// Set a servo value
-    ///
-    /// The servo numbers are constants in this module.
-    /// The value is between 0x00 and 0xff.
     pub async fn servo(&mut self, servo: Servo, mut value: u8) -> Result<()> {
         // These guys are reversed, handle that for the user
         if (servo == Servo::RightElbow) && value != 0x80 {
@@ -221,8 +218,6 @@ impl Meccanoid {
     }
 
     /// Set the on/off state of a chest light
-    ///
-    /// The light is a value between 0 and 3.
     pub async fn chest_light(&mut self, light: ChestLight, on: bool) -> Result<()> {
         let value = if on { 0x01 } else { 0x00 };
 
