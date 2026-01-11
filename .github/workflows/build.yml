@@ -31,6 +31,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install dbus
+        run: sudo apt update && sudo apt install libdbus-1-dev pkg-config
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+
       - name: Update rust
         run: rustup install
 
