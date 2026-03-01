@@ -5,8 +5,7 @@ use std::str::FromStr;
 use std::time::Duration;
 use tokio::time;
 
-mod meccanoid;
-use meccanoid::{ChestLight, Meccanoid, Servo, ServoColor, WheelDirection};
+use meccable::{ChestLight, Meccanoid, Servo, ServoColor, WheelDirection};
 
 fn get_from_user<T: FromStr>(kind: &str, stdin: &std::io::Stdin, buffer: &mut String) -> Result<T> {
     loop {
