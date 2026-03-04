@@ -1,0 +1,14 @@
+[package]
+name = "meccamote"
+version = "0.1.0"
+edition = "2024"
+authors = ["Daniel Paoliello <daniel@meta-sys.info>"]
+description = "CLI tool to control Meccanoid robots over Bluetooth using a Wiimote."
+license = "MIT"
+
+[dependencies]
+anyhow.workspace = true
+clap = { version = "4", features = ["derive"] }
+meccable = { path = "../meccable" }
+tokio.workspace = true
+wiimote-rs = "0.2"

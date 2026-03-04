@@ -31,24 +31,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install dbus
-        run: sudo apt update && sudo apt install libdbus-1-dev pkg-config
+      - name: Install Linux dependencies
+        run: sudo apt update && sudo apt install libdbus-1-dev libbluetooth-dev pkg-config
         if: ${{ matrix.os == 'ubuntu-latest' }}
 
       - name: Update rust
         run: rustup install
 
       - name: Run tests
-        run: cargo test --locked
+        run: cargo test --workspace --locked
 
       - name: Clippy
-        run: cargo clippy --locked -- -D warnings
+        run: cargo clippy --workspace --locked -- -D warnings
 
       - name: Check formatting
-        run: cargo fmt --check
+        run: cargo fmt --all --check
 
       - name: Build release
-        run: cargo build --locked --release
+        run: cargo build --workspace --locked --release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -56,5 +56,5 @@ jobs:
           name: artifact-${{ matrix.os }}
           path: |
               target/release/meccable*
-              target/**/release/meccable*
+              target/release/meccamote*
           if-no-files-found: error

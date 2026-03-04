@@ -59,7 +59,7 @@ pub enum ChestLight {
 
 /// Wheel movement directions.
 #[repr(u8)]
-#[derive(EnumString, PartialEq, Eq, Clone, Copy)]
+#[derive(EnumString, Debug, PartialEq, Eq, Clone, Copy)]
 #[strum(ascii_case_insensitive)]
 pub enum WheelDirection {
     #[strum(serialize = "f")]
